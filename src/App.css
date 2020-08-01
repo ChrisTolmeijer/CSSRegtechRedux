@@ -1,0 +1,39 @@
+.page-width {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+table thead td {
+  font-weight: bold;
+}
+
+.header {
+  background-color: darkgray; 
+  padding: 25px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header .logo {
+  font-weight: bold;
+  font-size: 18pt;
+}
+
+.header .welcome strong {
+  display: block;
+}
+
+form label {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+}
+
+form input, form select {
+  padding: 5px;
+  min-width: 250px;
+}
+
+.statistics strong {
+  display: block;
+}
