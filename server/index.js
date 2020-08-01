@@ -32,11 +32,15 @@ app.use(express.json());
 
 app.get('/', (req, res) => res.send(JSON.stringify(filings)));
 
-app.post('/', (req, res) => {]
+app.post('/', (req, res) => {
     if(req.body) {
-        filings.push({ ...req.body, date: new Date() });
+        const filing = { ...req.body, date: new Date() };
+        filings.push(filing);
+        res.send({ status: 'success', filing });
     }
-    res.send({ status: 'success' });
+    else {
+        res.send({ status: 'success' });
+    }
 });
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
