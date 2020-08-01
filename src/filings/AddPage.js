@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import Axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { AddFiling } from '../state/actions/FilingActions';
 
@@ -16,10 +15,8 @@ export const AddPage = () => {
 
     const submitForm = e => {
         e.preventDefault();
-        Axios.post('http://localhost:3001/', { name, category}).then(() => {
-            dispatch(AddFiling({ name, category }));
-            history.push('/');
-        });
+        dispatch(AddFiling({ name, category }));
+        history.push('/');
     }
 
     return <div className="page-width">
