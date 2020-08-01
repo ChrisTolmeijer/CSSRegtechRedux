@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { AddFiling } from '../state/actions/FilingActions';
 
 const filingCategories = ['A', 'B', 'C'];
 
 export const AddPage = () => {
 
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const [ name, setName ] = useState('');
     const [ category, setCategory ] = useState(filingCategories[0]);
@@ -14,6 +17,7 @@ export const AddPage = () => {
     const submitForm = e => {
         e.preventDefault();
         Axios.post('http://localhost:3001/', { name, category}).then(() => {
+            dispatch(AddFiling({ name, category }));
             history.push('/');
         });
     }
