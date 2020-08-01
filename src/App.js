@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 import { IndexPage } from './filings/IndexPage';
 import { AddPage } from './filings/AddPage';
 import { Header } from './components/Header';
+import { useDispatch } from 'react-redux';
+import { LoadFilings } from './state/actions/FilingActions';
 
-function App() {
+const App = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(LoadFilings());
+  }, [dispatch]);
+
   return (
       <BrowserRouter>
         <Header></Header>

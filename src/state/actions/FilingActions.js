@@ -1,3 +1,5 @@
+import Axios from "axios";
+
 export const LOAD_FILINGS = 'LOAD_FILINGS';
 export const ADD_FILING = 'ADD_FILING';
 
@@ -6,10 +8,9 @@ export const AddFiling = data => ({
     payload: data,
 });
 
-export const LoadFilings = () => {
-    return {
+export const LoadFilings = () => dispatch => {
+    Axios.get('http://localhost:3001').then(r => dispatch({
         type: LOAD_FILINGS,
-        /* @Todo: load filings from API */
-        payload: [],
-    };
+        payload: r.data,
+    }));
 };
