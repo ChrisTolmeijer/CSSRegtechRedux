@@ -33,7 +33,10 @@ form input, form select {
   padding: 5px;
   min-width: 250px;
 }
-
+.statistics .container{
+  display: flex;
+  justify-content: space-evenly;
+}
 .statistics strong {
   display: block;
 }

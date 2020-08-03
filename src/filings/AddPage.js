@@ -25,7 +25,7 @@ export const AddPage = () => {
             <input type="text" value={name} onChange={e => setName(e.target.value)} />
             <label>Category</label>
             <select value={category} onChange={e => setCategory(e.target.value)}>
-                { filingCategories.map(c => <option value="c">{ c }</option>)}
+                { filingCategories.map(c => <option value={c}>{ c }</option>)}
             </select><br/><br/>
             <button type="submit">Add filing</button>
         </form>
