@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export const Statistics = ({ filings }) => {
+export const Statistics = ({ filings, onRefresh }) => {
 
     const [ grouped, setGrouped ] = useState([]);
 
@@ -29,6 +29,9 @@ export const Statistics = ({ filings }) => {
             <div>
                 <strong>Most recent filing:</strong>
                 { filings.length > 0 ? filings[filings.length - 1].name : 'N/A' }
+            </div>
+            <div>
+                <button onClick={onRefresh}>Refresh...</button>
             </div>
         </div>
     </div>;

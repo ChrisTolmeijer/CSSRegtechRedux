@@ -10,17 +10,21 @@ export const IndexPage = () => {
     const [ filings, setFilings ] = useState([]);
 
     const fetchFilings = () => {
-        return Axios.get('http://localhost:3001');
+        Axios.get('http://localhost:3001').then(response => {
+            setFilings(response.data)
+        });
     }
 
+    const onRefreshClicked = () => {
+        fetchFilings();
+    };
+
     useEffect(() => {
-        fetchFilings().then(response => {
-            setFilings(response.data)
-        })
+        fetchFilings()
     }, []);
 
     return <div className="page-width">
-        <Statistics filings={filings}></Statistics>
+        <Statistics filings={filings} onRefresh={onRefreshClicked}></Statistics>
         <FilingsList filings={filings}></FilingsList>
         <hr />
         <button onClick={() => {
