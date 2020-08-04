@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { LoadFilings } from '../state/actions/FilingActions';
 
-export const Statistics = ({ filings, onRefresh }) => {
+export const Statistics = ({ filings }) => {
 
+    const dispatch = useDispatch();
     const [ grouped, setGrouped ] = useState([]);
+
+
+    const onRefresh = () => {
+        dispatch(LoadFilings());
+    };
 
     useEffect(() => {
         const groups = filings.reduce((obj, f) => {

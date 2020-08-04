@@ -1,14 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 export const Header = () => {
+
+    const filings = useSelector(s => s.filings);
+
     return <div className="header">
         <div className="logo">
             CSS Filings
         </div>
         <div className="welcome">
             <strong>John Doe</strong>
-            {/* @Todo: Retrieve the filing count with redux */}
-            <span>Filings: 0</span>
+            <span>Filings: { filings.length }</span>
         </div>
     </div>
 };
